@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 
 const quickEventSchema = new mongoose.Schema({
   id: { type: Number, unique: true },
-
   title: { type: String, required: true },
-  date: String,
-  time: String,
-  location: String,
-  type: String,
+  date: { type: String, required: true },
+  time: { type: String },
+  location: { type: String },
+  type: { type: String },
+  recurringWeekly: { type: Boolean, default: false }, // baru ditambah
 });
 
-// Auto-increment numeric ID
+// Auto increment ID
 quickEventSchema.pre("save", async function (next) {
   if (this.isNew) {
     try {

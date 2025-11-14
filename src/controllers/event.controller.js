@@ -160,7 +160,7 @@ export const getQuickEventById = async (req, res) => {
 // CREATE quick event
 export const createQuickEvent = async (req, res) => {
   try {
-    const { title, date, time, location, type } = req.body;
+    const { title, date, time, location, type, recurringWeekly } = req.body;
 
     const newQuickEvent = new QuickEvent({
       title,
@@ -168,6 +168,7 @@ export const createQuickEvent = async (req, res) => {
       time,
       location,
       type,
+      recurringWeekly: recurringWeekly ?? false, // ditambahkan
     });
 
     await newQuickEvent.save();
@@ -180,11 +181,18 @@ export const createQuickEvent = async (req, res) => {
 // UPDATE quick event
 export const updateQuickEvent = async (req, res) => {
   try {
-    const { title, date, time, location, type } = req.body;
+    const { title, date, time, location, type, recurringWeekly } = req.body;
 
     const updated = await QuickEvent.findOneAndUpdate(
       { id: req.params.id },
-      { title, date, time, location, type },
+      {
+        title,
+        date,
+        time,
+        location,
+        type,
+        recurringWeekly, // ditambahkan
+      },
       { new: true }
     );
 
