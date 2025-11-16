@@ -1,20 +1,15 @@
 import express from "express";
 import {
-  // ==== EVENT CONTROLLERS ====
   getAllEvents,
   getEventById,
   createEvent,
   updateEvent,
   deleteEvent,
-
-  // ==== SCHEDULE CONTROLLERS ====
   getSchedules,
   getScheduleById,
   createSchedule,
   updateSchedule,
   deleteSchedule,
-
-  // ==== QUICK EVENT CONTROLLERS ====
   getQuickEvents,
   getQuickEventById,
   createQuickEvent,
@@ -22,57 +17,40 @@ import {
   deleteQuickEvent,
 } from "../controllers/event.controller.js";
 
+import {
+  registerEvent,
+  getRegistrationsAdmin,
+  updateStatus,
+  getUserRegistrations,
+} from "../controllers/eventRegistration.controller.js";
+
 const router = express.Router();
 
-// ==================== EVENT ROUTES ====================
-
-// Ambil semua event
+// EVENT ROUTES
 router.get("/events", getAllEvents);
-
-// Ambil event berdasarkan ID (numeric)
 router.get("/events/:id", getEventById);
-
-// Tambah event baru
 router.post("/events", createEvent);
-
-// Update event berdasarkan ID
 router.put("/events/:id", updateEvent);
-
-// Hapus event berdasarkan ID
 router.delete("/events/:id", deleteEvent);
 
-// ==================== SCHEDULE ROUTES ====================
-
-// Ambil semua jadwal
+// SCHEDULE ROUTES
 router.get("/schedules", getSchedules);
-
-// Ambil jadwal berdasarkan ID (numeric)
 router.get("/schedules/:id", getScheduleById);
-
-// Tambah jadwal baru
 router.post("/schedules", createSchedule);
-
-// Update jadwal berdasarkan ID
 router.put("/schedules/:id", updateSchedule);
-
-// Hapus jadwal berdasarkan ID
 router.delete("/schedules/:id", deleteSchedule);
 
-// ==================== QUICK EVENT ROUTES ====================
-
-// Ambil semua quick event
+// QUICK EVENT ROUTES
 router.get("/quick-events", getQuickEvents);
-
-// Ambil quick event berdasarkan ID (numeric)
 router.get("/quick-events/:id", getQuickEventById);
-
-// Tambah quick event baru
 router.post("/quick-events", createQuickEvent);
-
-// Update quick event berdasarkan ID
 router.put("/quick-events/:id", updateQuickEvent);
-
-// Hapus quick event berdasarkan ID
 router.delete("/quick-events/:id", deleteQuickEvent);
+
+// EVENT REGISTRATION ROUTES
+router.post("/registrations", registerEvent);
+router.get("/registrations", getRegistrationsAdmin);
+router.put("/registrations/:id",  updateStatus);
+router.get("/registrations/user/:user_id", getUserRegistrations);
 
 export default router;
