@@ -6,6 +6,7 @@ import cors from "cors";
 import eventRoutes from "./routes/event.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
+import homepageRoutes from "./routes/homepage.routes.js";
 
 dotenv.config();
 
@@ -23,14 +24,13 @@ mongoose
   .then(() => console.log("✅ Connected to MongoDB Atlas"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-
 // -------------------------------
 //  ROUTES
 // -------------------------------
 app.use("/api", eventRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
-
+app.use("/api/homepage", homepageRoutes);
 
 // -------------------------------
 //  START SERVER
