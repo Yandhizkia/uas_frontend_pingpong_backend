@@ -7,6 +7,7 @@ import eventRoutes from "./routes/event.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import eventRegistrationRoutes from "./routes/eventRegistrationRoutes.js";
+import homepageRoutes from "./routes/homepage.routes.js";
 
 dotenv.config();
 
@@ -24,7 +25,6 @@ mongoose
   .then(() => console.log("✅ Connected to MongoDB Atlas"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-
 // -------------------------------
 //  ROUTES
 // -------------------------------
@@ -33,6 +33,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/registrations", eventRegistrationRoutes);
 
+app.use("/api/homepage", homepageRoutes);
 
 
 // -------------------------------

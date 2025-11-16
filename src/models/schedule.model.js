@@ -7,6 +7,7 @@ const scheduleSchema = new mongoose.Schema({
   time: String,
   location: String,
   type: String,
+  recurringWeekly: { type: Boolean, default: false }, // baru ditambah
 });
 
 // Auto-assign numeric id berdasarkan max(id) di collection
