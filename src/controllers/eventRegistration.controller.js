@@ -5,7 +5,10 @@ export const registerEvent = async (req, res) => {
   try {
     const { user_id, event_id } = req.body;
 
-    await EventRegistration.create({ user_id, event_id });
+    await EventRegistration.create({ 
+        user_id, 
+        event_id,
+    });
 
     res.json({ message: "Registration sent to admin!" });
   } catch (error) {
