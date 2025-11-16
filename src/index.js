@@ -6,6 +6,7 @@ import cors from "cors";
 import eventRoutes from "./routes/event.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
+import eventRegistrationRoutes from "./routes/eventRegistrationRoutes.js";
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ mongoose
 app.use("/api", eventRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/registrations", eventRegistrationRoutes);
 
 
 
