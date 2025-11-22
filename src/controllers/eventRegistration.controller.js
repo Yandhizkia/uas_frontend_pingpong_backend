@@ -17,7 +17,7 @@ export const registerEvent = async (req, res) => {
   }
 };
 
-// ADMIN GET ALL REGISTRATIONS
+// atmin ambil regis
 export const getRegistrationsAdmin = async (req, res) => {
   try {
     const data = await EventRegistration.find()
@@ -44,7 +44,7 @@ export const updateStatus = async (req, res) => {
   }
 };
 
-// USER GET OWN REGISTRATIONS
+// user apdet status
 export const getUserRegistrations = async (req, res) => {
   try {
     const { user_id } = req.params;
