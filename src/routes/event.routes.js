@@ -1,15 +1,20 @@
 import express from "express";
 import {
+  // ===== EVENT CONTROLLERS =====
   getAllEvents,
   getEventById,
   createEvent,
   updateEvent,
   deleteEvent,
+
+  // ===== SCHEDULE CONTROLLERS =====
   getSchedules,
   getScheduleById,
   createSchedule,
   updateSchedule,
   deleteSchedule,
+
+  // ===== QUICK EVENT CONTROLLERS =====
   getQuickEvents,
   getQuickEventById,
   createQuickEvent,

@@ -1,11 +1,10 @@
-import Event from "../models/event.model.js";
-import Schedule from "../models/schedule.model.js";
-import QuickEvent from "../models/quickEvent.model.js";
+import Event from "../models/eventmanagement/event.model.js";
+import Schedule from "../models/eventmanagement/schedule.model.js";
+import QuickEvent from "../models/eventmanagement/quickEvent.model.js";
 
 
 // ==================== EVENT CONTROLLERS ====================
 
-// GET semua event
 export const getAllEvents = async (req, res) => {
   try {
     const events = await Event.find();
@@ -15,7 +14,6 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
-// GET event berdasarkan ID
 export const getEventById = async (req, res) => {
   try {
     const event = await Event.findOne({ id: req.params.id });
@@ -26,7 +24,6 @@ export const getEventById = async (req, res) => {
   }
 };
 
-// CREATE event baru
 export const createEvent = async (req, res) => {
   try {
     const { title, date, time, location, type, description, max_participants } = req.body;
@@ -48,7 +45,6 @@ export const createEvent = async (req, res) => {
   }
 };
 
-// UPDATE event
 export const updateEvent = async (req, res) => {
   try {
     const { title, date, time, location, type, description, max_participants } = req.body;
@@ -67,7 +63,6 @@ export const updateEvent = async (req, res) => {
   }
 };
 
-// DELETE event
 export const deleteEvent = async (req, res) => {
   try {
     const deleted = await Event.findOneAndDelete({ id: req.params.id });
@@ -79,7 +74,7 @@ export const deleteEvent = async (req, res) => {
   }
 };
 
-// ==================== SCHEDULE CONTROLLERS (TIDAK DIUBAH) ====================
+// ==================== SCHEDULE CONTROLLERS ====================
 
 export const getSchedules = async (req, res) => {
   try {
@@ -136,7 +131,6 @@ export const deleteSchedule = async (req, res) => {
 
 // ==================== QUICK EVENT CONTROLLERS ====================
 
-// GET semua quick event
 export const getQuickEvents = async (req, res) => {
   try {
     const quickEvents = await QuickEvent.find();
@@ -146,7 +140,6 @@ export const getQuickEvents = async (req, res) => {
   }
 };
 
-// GET quick event by ID
 export const getQuickEventById = async (req, res) => {
   try {
     const quickEvent = await QuickEvent.findOne({ id: req.params.id });
@@ -157,7 +150,6 @@ export const getQuickEventById = async (req, res) => {
   }
 };
 
-// CREATE quick event
 export const createQuickEvent = async (req, res) => {
   try {
     const { title, date, time, location, type, recurringWeekly } = req.body;
@@ -168,7 +160,7 @@ export const createQuickEvent = async (req, res) => {
       time,
       location,
       type,
-      recurringWeekly: recurringWeekly ?? false, // ditambahkan
+      recurringWeekly: recurringWeekly ?? false,
     });
 
     await newQuickEvent.save();
@@ -178,7 +170,6 @@ export const createQuickEvent = async (req, res) => {
   }
 };
 
-// UPDATE quick event
 export const updateQuickEvent = async (req, res) => {
   try {
     const { title, date, time, location, type, recurringWeekly } = req.body;
@@ -191,7 +182,7 @@ export const updateQuickEvent = async (req, res) => {
         time,
         location,
         type,
-        recurringWeekly, // ditambahkan
+        recurringWeekly,
       },
       { new: true }
     );
@@ -204,7 +195,6 @@ export const updateQuickEvent = async (req, res) => {
   }
 };
 
-// DELETE quick event
 export const deleteQuickEvent = async (req, res) => {
   try {
     const deleted = await QuickEvent.findOneAndDelete({ id: req.params.id });
