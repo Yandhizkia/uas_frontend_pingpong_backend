@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const scheduleSchema = new mongoose.Schema({
-  id: { type: Number, unique: true }, // ID urut manual
+  id: { type: Number, unique: true },
   title: { type: String, required: true },
   day: { type: String, required: true },
   time: String,
   location: String,
   type: String,
-  recurringWeekly: { type: Boolean, default: false }, // baru ditambah
+  recurringWeekly: { type: Boolean, default: false },
 });
 
 // Auto-assign numeric id berdasarkan max(id) di collection

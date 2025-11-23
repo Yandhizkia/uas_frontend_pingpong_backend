@@ -7,7 +7,7 @@ const quickEventSchema = new mongoose.Schema({
   time: { type: String },
   location: { type: String },
   type: { type: String },
-  recurringWeekly: { type: Boolean, default: false }, // baru ditambah
+  recurringWeekly: { type: Boolean, default: false },
 });
 
 // Auto increment ID
