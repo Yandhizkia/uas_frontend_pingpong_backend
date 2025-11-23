@@ -22,27 +22,40 @@ import {
   deleteQuickEvent,
 } from "../controllers/event.controller.js";
 
+import {
+  registerEvent,
+  getRegistrationsAdmin,
+  updateStatus,
+  getUserRegistrations,
+} from "../controllers/eventRegistration.controller.js";
+
 const router = express.Router();
 
-// ==================== EVENT ROUTES ====================
+// EVENT ROUTES
 router.get("/events", getAllEvents);
 router.get("/events/:id", getEventById);
 router.post("/events", createEvent);
 router.put("/events/:id", updateEvent);
 router.delete("/events/:id", deleteEvent);
 
-// ==================== SCHEDULE ROUTES ====================
+// SCHEDULE ROUTES
 router.get("/schedules", getSchedules);
 router.get("/schedules/:id", getScheduleById);
 router.post("/schedules", createSchedule);
 router.put("/schedules/:id", updateSchedule);
 router.delete("/schedules/:id", deleteSchedule);
 
-// ==================== QUICK EVENT ROUTES ====================
+// QUICK EVENT ROUTES
 router.get("/quick-events", getQuickEvents);
 router.get("/quick-events/:id", getQuickEventById);
 router.post("/quick-events", createQuickEvent);
 router.put("/quick-events/:id", updateQuickEvent);
 router.delete("/quick-events/:id", deleteQuickEvent);
+
+// EVENT REGISTRATION ROUTES
+router.post("/registrations", registerEvent);
+router.get("/registrations", getRegistrationsAdmin);
+router.put("/registrations/:id",  updateStatus);
+router.get("/registrations/user/:user_id", getUserRegistrations);
 
 export default router;
