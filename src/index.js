@@ -11,6 +11,7 @@ import homepageRoutes from "./routes/homepage.routes.js";
 import aboutRoutes from "./routes/about.routes.js";
 import nextEventRoutes from "./routes/nextevent.routes.js";
 import feedbackRoutes from "./routes/feedback.routes.js";
+import announcementRoutes from "./routes/announcement.routes.js";
 
 dotenv.config();
 
@@ -30,12 +31,11 @@ app.use("/api", eventRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/registrations", eventRegistrationRoutes);
-
 app.use("/api/homepage", homepageRoutes);
 app.use("/api/about", aboutRoutes);
 app.use("/api/nextevent", nextEventRoutes);
 app.use("/api/feedback", feedbackRoutes);
-
+app.use("/api/announcement", announcementRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
