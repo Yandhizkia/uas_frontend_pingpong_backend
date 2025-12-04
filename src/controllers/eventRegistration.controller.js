@@ -1,4 +1,3 @@
-// controllers/eventRegistration.controller.js
 import EventRegistration from "../models/eventRegistration.model.js";
 import User from "../models/loginregister/user.model.js";
 import QuickEvent from "../models/eventmanagement/quickEvent.model.js";

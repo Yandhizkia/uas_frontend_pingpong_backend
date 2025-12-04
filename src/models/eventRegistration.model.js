@@ -1,4 +1,3 @@
-// models/eventRegistration.model.js
 import mongoose from "mongoose";
 
 const userInfoSchema = new mongoose.Schema({

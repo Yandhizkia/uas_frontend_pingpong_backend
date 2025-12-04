@@ -1,4 +1,3 @@
-// routes/eventRegistrationRoutes.js
 import express from "express";
 import {
   registerEvent,
